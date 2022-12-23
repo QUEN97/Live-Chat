@@ -9,4 +9,8 @@ export const helpRequestRouter = router({
     });
   return helpRequest;
   }),
+  getHelpRequests: publicProcedure.query(async ({ ctx }) => {
+    const helpRequests = await ctx.prisma.helpRequest.findMany();
+    return helpRequests;
+  }),
 });
